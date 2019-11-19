@@ -1,4 +1,7 @@
-## Dependencies
+### Deep Dilated Convolution Neural Networks
+
+## Dependencies used, You can also use the new available versions.
+
 * Python 3.6
 * pytorch 0.4.1
 * tqdm
@@ -6,24 +9,29 @@
 * numpy 1.13.3, scipy 0.19.1, pandas 0.24.1
 * jsonlines
 
-Other versions may also work, but the ones listed are the ones I've used
 
-## Training a new model
-Create a `mimicdata` folder that holds the files `D_ICD_DIAGNOSES.csv` and `D_ICD_PROCEDURES.csv` from your MIMIC-III database copy and a ```saved_models``` folder that will hold your trained models.
+
+## For Training a new model
+
+Create a directory that holds uncompressed files `D_ICD_DIAGNOSES.csv` and `D_ICD_PROCEDURES.csv` from your MIMIC-III database copy and a ```trained``` folder that will hold your trained models.
 
 To train a new model use the script `training.py`. Execute `python training.py -h` for a full list of input arguments and flags.
 
-Use the following files as input for the model
-* `notes_labeled_train.ndjson` training split of the dataset
-* `notes_labeled_dev.ndjson` development split of the dataset
-* `notes_labeled_test.ndjson` validation split of the dataset
+Use the following files as input for the model, This data is pre-processed by "Stefano Malacrino". 
+
+* `notes_train.ndjson` training split of the dataset
+* `notes_dev.ndjson` development split of the dataset
+* `notes_test.ndjson` validation split of the dataset
 * `glove.840B.300d.txt` GloVe pre-trained word vectors (available at https://nlp.stanford.edu/data/glove.840B.300d.zip)
 * `vocab.csv` vocabulary of the training corpus
 
-To train a new model run the following command
 
-```python3 training.py /path/to/notes_labeled_train.ndjson /path/to/vocab.csv full conv_dilated 300,125,125,125 --filter-size 3 --dilation 1,2,4 --dropout 0.2,0.2,0.2 --n-epochs 200 --patience 10 --lr 0.0001 --criterion f1_micro_fine --batch-size 8 --max-len 5200 --embed-file /path/to/glove.840B.300d.txt --embed-desc --models-dir /path/to/saved_models --data-dir /path/to/mimicdata```
+## To train a new model run the following command
 
-To test a pre-trained model run the following command
+```python3 main.py /path/to/notes_train.ndjson /path/to/vocab.csv full deep_dilated 300,125,125,125,125,125 --filter-size 4 --dilation 1,2,4,8,16 --dropout 0.2,0.2,0.2,0.2,0.2 --n-epochs 100 --lr 0.001 --criterion f1_micro_fine --patience 5 --batch-size 8 --max-len 5200 --embed-file /path/to/glove.840B.300d.txt --embed-desc --models-dir /path/to/trained --data-dir /path/to/directory```
 
-```python3 training.py /path/to/notes_labeled_train.ndjson /path/to/vocab.csv full conv_dilated 300,125,125,125 --filter-size 3 --dilation 1,2,4 --dropout 0.2,0.2,0.2 --n-epochs 200 --patience 10 --lr 0.0001 --criterion f1_micro_fine --batch-size 8 --max-len 5200 --embed-file /path/to/glove.840B.300d.txt --embed-desc --models-dir /path/to/saved_models --data-dir /path/to/mimicdata --test-model /path/to/model.pth```
+if you want to use gpu, add --gpu in the commands
+
+After Training, If you want to test a model use the following command 
+
+```python3 main.py /path/to/notes_train.ndjson /path/to/vocab.csv full deep_dilated 300,125,125,125,125,125 --filter-size 4 --dilation 1,2,4,8,16 --dropout 0.2,0.2,0.2,0.2,0.2 --n-epochs 100 --criterion f1_micro_fine --patience 5 --lr 0.001--batch-size 8 --max-len 5200 --embed-file /path/to/glove.840B.300d.txt --embed-desc --models-dir /path/to/trained --data-dir /path/to/directory --test-model /path/to/Optim_last_epoch.pth```
