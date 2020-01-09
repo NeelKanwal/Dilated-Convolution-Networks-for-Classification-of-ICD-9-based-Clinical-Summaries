@@ -22,7 +22,8 @@ Use the following files as input for the model, This data is pre-processed by "S
 * `notes_train.ndjson` training split of the dataset
 * `notes_dev.ndjson` development split of the dataset
 * `notes_test.ndjson` validation split of the dataset
-* `glove.840B.300d.txt` GloVe pre-trained word vectors (available at https://nlp.stanford.edu/data/glove.840B.300d.zip)
+* `Word2Vec Pretrained Embeddings` can be downloaed from (https://drive.google.com/file/d/0B7XkCwpI5KDYNlNUTTlSS21pQmM/edit)
+* `glove.42B.300d.txt` GloVe pre-trained word vectors (available at https://nlp.stanford.edu/data/glove.42B.300d.zip)
 * `vocab.csv` vocabulary of the training corpus
 
 
