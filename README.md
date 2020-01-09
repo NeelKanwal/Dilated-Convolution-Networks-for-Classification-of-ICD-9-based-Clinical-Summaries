@@ -9,6 +9,7 @@
 * numpy 1.13.3, scipy 0.19.1, pandas 0.24.1
 * jsonlines
 
+you can simply use the `` pip install -r req.text`` to use the packages in a new virtual enviroment. 
 
 
 ## For Training a new model
