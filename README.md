@@ -9,6 +9,7 @@
 * numpy 1.13.3, scipy 0.19.1, pandas 0.24.1
 * jsonlines
 
+It is better to create a new enviroment in order to avoid loosing update versions of some packages. Install Virtual ENV using ``pip install virtualenv `` then create an enviroment using `` virtualenv new  `` and ``source new/bin/activate``
 you can simply use the `` pip install -r req.text`` to use the packages in a new virtual enviroment. 
 
 
@@ -36,10 +37,10 @@ PatientID; HospitalID; Lists_of_Text_Tokens; Length_of_lists; List_of_Labels
 
 ## To train a new model run the following command
 
-```python3 main.py /path/to/notes_train.ndjson /path/to/vocab.csv full 300,125,125,125,125,125 --embed glove --filter-size 3 --dilation 1,2,4,8,16 --dropout 0.15,0.15,0.15,0.15,0.15 --n-epochs 100 --lr 0.001 --criterion f1_micro_fine --patience 5 --batch-size 8 --max-len 5000 --embed-file /path/to/glove.42B.300d.txt --embed-desc --models-dir /path/to/trained --data-dir /path/to/directory```
+```python3 main.py /path/to/notes_train.ndjson /path/to/vocab.csv 300,125,125,125,125,125 --embed glove --filter-size 3 --dilation 1,2,4,8,16 --dropout 0.15,0.15,0.15,0.15,0.15 --n-epochs 100 --lr 0.001 --criterion f1_micro_fine --patience 5 --batch-size 8 --max-len 5000 --embed-file /path/to/glove.42B.300d.txt --embed-desc --models-dir /path/to/trained --data-dir /path/to/directory```
 
 if you want to use gpu, add --gpu in the commands
 
 After Training, If you want to test a model use the following command 
 
-```python3 main.py /path/to/notes_train.ndjson /path/to/vocab.csv full 300,125,125,125,125,125 --filter-size 3 --dilation 1,2,4,8,16 --dropout 0.15,0.15,0.15,0.15,0.15 --n-epochs 100 --criterion f1_micro_fine --patience 5 --lr 0.001--batch-size 8 --max-len 5000 --embed-file /path/to/glove.42B.300d.txt --embed-desc --models-dir /path/to/trained --data-dir /path/to/directory --test-model /path/to/Optim_last_epoch.pth```
+```python3 main.py /path/to/notes_train.ndjson /path/to/vocab.csv 300,125,125,125,125,125 --filter-size 3 --dilation 1,2,4,8,16 --dropout 0.15,0.15,0.15,0.15,0.15 --n-epochs 100 --criterion f1_micro_fine --patience 5 --lr 0.001--batch-size 8 --max-len 5000 --embed-file /path/to/glove.42B.300d.txt --embed-desc --models-dir /path/to/trained --data-dir /path/to/directory --test-model /path/to/Optim_last_epoch.pth```
