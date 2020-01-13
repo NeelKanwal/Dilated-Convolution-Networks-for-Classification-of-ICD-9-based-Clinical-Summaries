@@ -54,5 +54,5 @@ use
 The Change in filter size and dropout probabilty results in variation of evaluation score. It can be managed to certain range based on targeted criteria. Here is an excerpt from change that underlies from filter size [3,4,5,6] & Dropout [0.1,0.15,0.2] with FastText.
 
 
-| <img src="https://funkyimg.com/i/31kPs.png" width="450"> | <img src="https://funkyimg.com/i/31kPD.png" width="450"> 
+| <img src="https://funkyimg.com/i/31kPs.png" width="350"> | <img src="https://funkyimg.com/i/31kPD.png" width="350"> 
 
