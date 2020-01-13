@@ -44,3 +44,14 @@ if you want to use gpu, add --gpu in the commands
 After Training, If you want to test a model use the following command 
 
 ```python3 main.py /path/to/notes_train.ndjson /path/to/vocab.csv 300,125,125,125,125,125 --filter-size 3 --dilation 1,2,4,8,16 --dropout 0.15,0.15,0.15,0.15,0.15 --n-epochs 100 --criterion f1_micro_fine --patience 5 --lr 0.001--batch-size 8 --max-len 5000 --embed-file /path/to/glove.42B.300d.txt --embed-desc --models-dir /path/to/trained --data-dir /path/to/directory --test-model /path/to/Optim_last_epoch.pth```
+
+use 
+
+```python3 main.py -h``` to observe full range of paramteric values. 
+
+## Parametric Tuning
+
+The Change in filter size and dropout probabilty results in variation of evaluation score. It can be managed to certain range based on targeted criteria. Here is an excerpt from change that underlies from filter size [3,4,5,6] & Dropout [0.1,0.15,0.2] with FastText.
+
+![img1](https://funkyimg.com/i/31kPs.png)
+![img2](https://funkyimg.com/i/31kPD.png)
