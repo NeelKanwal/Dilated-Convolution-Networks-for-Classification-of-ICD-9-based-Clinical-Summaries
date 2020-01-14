@@ -80,10 +80,10 @@ def init_model(args, dicts):
             word_embeddings_matrix = load_word2vec_embeddings(args.embed_file, dicts['ind2w'], args.dims[0], args.embed_normalize)
         elif args.embed == "stack_word2vec":
             print("Embedding with Stack of GloVe & Word2Vec......")
-            word_embeddings_matrix = load_stack_word2vec_embeddings(args.embed_file1,args.embed_file2, dicts['ind2w'], args.dims[0], args.embed_normalize)
+            word_embeddings_matrix = load_stack_word2vec_embeddings(args.embed_file,args.embed_file2, dicts['ind2w'], args.dims[0], args.embed_normalize)
         elif args.embed == "stack_fasttext":
             print("Embedding with Stack of GloVe & fasttext......")
-            word_embeddings_matrix = load_stack_fasttext_embeddings(args.embed_file1, dicts['ind2w'], args.dims[0], args.embed_normalize)    
+            word_embeddings_matrix = load_stack_fasttext_embeddings(args.embed_file, dicts['ind2w'], args.dims[0], args.embed_normalize)    
         elif args.embed == "fasttext":
             print("Making fasttext Embeddings")
             word_embeddings_matrix = load_fasttext_Embeddings(dicts['ind2w'], args.embed_normalize)
