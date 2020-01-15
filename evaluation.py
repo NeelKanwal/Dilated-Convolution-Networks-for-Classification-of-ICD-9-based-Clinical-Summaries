@@ -319,10 +319,10 @@ def print_metrics(metrics, level=None):
     else: level = ''
         
     print('{:>15s}{:>12s}{:>9s}{:>12s}{:>10s}{:>9s}'.format('[MACRO] ', 'precision', 'recall', 'f-measure', 'ROC AUC', 'PR AUC'))
-    print('{:>15.4f}{:>12.4f}{:>9.4f}{:>12.4f}{:>10.4f}{:>9.4f}'.format(*[metrics['{}_{}_{}'.format(k,'macro',level)] for k in ["prec", "rec", "f1", "roc_auc", "pr_auc"]]))
+    print('{:>12.4f}{:>9.4f}{:>12.4f}{:>10.4f}{:>9.4f}'.format(*[metrics['{}_{}_{}'.format(k,'macro',level)] for k in ["prec", "rec", "f1", "roc_auc", "pr_auc"]]))
         
     print('{:>15s}{:>12s}{:>9s}{:>12s}{:>10s}{:>9s}'.format('[MICRO] ', 'precision', 'recall', 'f-measure', 'ROC AUC', 'PR AUC'))
-    print('{:>15.4f}{:>12.4f}{:>9.4f}{:>12.4f}{:>10.4f}{:>9.4f}'.format(*[metrics['{}_{}_{}'.format(k,'micro',level)] for k in ["prec", "rec", "f1", "roc_auc", "pr_auc"]]))
+    print('{:>12.4f}{:>9.4f}{:>12.4f}{:>10.4f}{:>9.4f}'.format(*[metrics['{}_{}_{}'.format(k,'micro',level)] for k in ["prec", "rec", "f1", "roc_auc", "pr_auc"]]))
     
     for metric, val in metrics.items():
         if metric.find("rec_at") != -1:
