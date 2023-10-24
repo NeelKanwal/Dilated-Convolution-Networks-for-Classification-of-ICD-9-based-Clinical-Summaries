@@ -59,11 +59,11 @@ The Change in filter size and dropout probabilty results in variation of evaluat
 | <img src="https://funkyimg.com/i/31kPs.png" width="350"> | <img src="https://funkyimg.com/i/31kPD.png" width="350"> 
 
 If you use this code, then please cite this.
-
+`
 @phdthesis{kanwal2020dilated,
   title={Dilated Convolution Networks for Classification of ICD-9 based Clinical Summaries},
   author={Kanwal, Neel},
   year={2020},
   school={Politecnico di Torino}
 }
-
+`
