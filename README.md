@@ -1,4 +1,6 @@
-### Deep Dilated Convolution Neural Networks
+### DILATED CONVOLUTION NETWORKS FOR CLASSIFICATION OF ICD-9 BASED CLINICAL SUMMARIES
+
+This repository contains source code for thesis work: https://webthesis.biblio.polito.it/14400/
 
 ## Dependencies used, You can also use the new available versions.
 
@@ -15,11 +17,11 @@ you can simply use the `` pip install -r req.text`` to use the packages in a new
 
 ## For Training a new model
 
-Create a directory that holds uncompressed files `D_ICD_DIAGNOSES.csv` and `D_ICD_PROCEDURES.csv` from your MIMIC-III database copy and a ```trained``` folder that will hold your trained models.
+Create a directory that holds the uncompressed files `D_ICD_DIAGNOSES.csv` and `D_ICD_PROCEDURES.csv` from your MIMIC-III database copy and a ```trained``` folder that will hold your trained models.
 
-To train a new model use the script `training.py`. Execute `python training.py -h` for a full list of input arguments and flags.
+To train a new model, use the script `training.py`. Execute `python training.py -h` for a full list of input arguments and flags.
 
-Use the following files as input for the model, This data is pre-processed by "Stefano Malacrino". 
+Use the following files as input for the model. This data is pre-processed by "Stefano Malacrino". 
 ## Preprocessed data format 
 
 Columns:0     1                 2                   3               4
@@ -55,4 +57,13 @@ The Change in filter size and dropout probabilty results in variation of evaluat
 
 
 | <img src="https://funkyimg.com/i/31kPs.png" width="350"> | <img src="https://funkyimg.com/i/31kPD.png" width="350"> 
+
+If you use this code, then please cite this.
+
+@phdthesis{kanwal2020dilated,
+  title={Dilated Convolution Networks for Classification of ICD-9 based Clinical Summaries},
+  author={Kanwal, Neel},
+  year={2020},
+  school={Politecnico di Torino}
+}
 
